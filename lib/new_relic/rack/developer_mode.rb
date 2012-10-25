@@ -21,7 +21,7 @@ module NewRelic
       end
 
       def call(env)
-        return @app.call(env) unless /^\/newrelic/ =~ ::Rack::Request.new(env).path_info
+        return @app.call(env) unless /newrelic/ =~ ::Rack::Request.new(env).path_info
         dup._call(env)
       end
 
